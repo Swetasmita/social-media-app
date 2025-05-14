@@ -1,42 +1,65 @@
 .app-container {
   display: flex;
-   min-height: 100vh;
+  flex-direction: row;
+  min-height: 100vh;
 }
-.content { 
-  width: 100%; 
+
+/* Sidebar takes less width on larger screens, stacks on smaller */
+.sidebar {
+  min-height: 100%;
+  width: 220px;
+}
+
+.content {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
+
 .main-content-area {
-  flex: 1; 
+  flex: 1;
+  padding: 1rem;
 }
-.sidebar {
-  min-height: 800px;
-  width: 190px;
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    order: 1;
+  }
+
+  .content {
+    order: 2;
+  }
 }
-.post-card{
-  margin: 20px 50px;
-  width: 32rem;
+
+/* General layout and spacing */
+footer {
+  min-height: 100px;
+  color: white;
 }
-.post-hashtag{
-  margin-right:5px;
+
+.post-card {
+  margin: 20px auto;
+  max-width: 90%;
 }
-.post-reactions{
-  width:100%;
-  margin: 15px 0 0 0;
+
+.create-post-form {
+  width: 90%;
+  margin: 30px auto;
 }
-.create-post-form{
-  width:80%;
-  margin: 30px 50px;
-}
-.welcome-message{
-  margin: 20px 50px;
+
+.welcome-message {
+  margin: 20px auto;
   text-align: center;
 }
-footer {
-  min-height:100px;
-   color: white; /* White text */ 
-}
-.spinner{
-  margin: 10% 0px;
+
+.spinner {
+  margin: 10% auto;
 }
